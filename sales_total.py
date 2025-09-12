@@ -44,3 +44,37 @@ plt.legend()
 plt.tight_layout()
 plt.savefig("sales_chart.png")  # PNGで保存
 plt.show()
+import pandas as pd
+
+# CSVを読み込む
+df = pd.read_csv("sales_data.csv")
+
+# データ確認
+print("データ一覧：")
+print(df)
+
+# 売上の合計
+total = df["sales"].sum()
+print("売上合計:", total)
+
+# 売上の平均
+avg = df["sales"].mean()
+print("平均売上:", avg)
+
+# 最大・最小もついでに出す
+max_value = df["sales"].max()
+min_value = df["sales"].min()
+print("最大売上:", max_value)
+print("最小売上:", min_value)
+# ===== 並び替え =====
+print("\n売上が多い順に並び替え：")
+sorted_df = df.sort_values("sales", ascending=False)
+print(sorted_df)
+# 売上が1万以上の日を抽出
+print("\n売上が1万以上の日：")
+high_sales = df[df["sales"] >= 10000]
+print(high_sales)
+# CSVに保存
+high_sales.to_csv("high_sales.csv", index=False)
+print("high_sales.csv に保存しました！")
+
