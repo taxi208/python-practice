@@ -47,18 +47,26 @@ if __name__ == "__main__":
     # グラフ描画
     import pandas as pd
     import matplotlib.pyplot as plt
+    import matplotlib
+    matplotlib.rcParams['font.family'] = 'Hiragino Sans' # Macの場合
+
     daily_sales = data.groupby("day")["sales"].sum()
 
 
     plt.figure(figsize=(8,5))
     plt.plot(daily_sales.index, daily_sales.values, marker="o")
-    plt.title("日別売上の推移")
-    plt.xlabel("日付")
-    plt.ylabel("売上金額")
-    plt.xticks(rotation=45)
-    plt.grid(True)
-    plt.tight_layout()
-    plt.savefig("sales_line_chart.png")
-    plt.show()
+
+# 平均線を描画（直接 daily_sales.mean() を使う）
+plt.axhline(y=daily_sales.mean(), color="red", linestyle="--", label="平均")
+plt.legend()
+
+plt.title("日別売上の推移")
+plt.xlabel("日付")
+plt.ylabel("売上金額")
+plt.xticks(rotation=45)
+plt.grid(True)
+plt.tight_layout()
+plt.savefig("sales_line_chart.png")
+plt.show()
 
 
