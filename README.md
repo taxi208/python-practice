@@ -30,3 +30,16 @@
   - 出力メッセージを動的に修正
 ## 進捗メモ
 git commit -m "進捗メモをREADMEに追記 (関数化と閾値対応)"
+# python-practice
+
+このリポジトリでは、Pythonを使ったデータ処理と可視化の練習を行っています。  
+CSVファイルから日別売上を集計し、折れ線グラフとして表示。さらに平均線を追加して、売上の傾向を視覚的に確認できるようにしました。  
+
+## 使用技術
+- Python 3.9
+- pandas
+- matplotlib
+
+## 実行方法
+```bash
+python3 sales_total.py
