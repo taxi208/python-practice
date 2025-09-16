@@ -43,6 +43,8 @@ CSVファイルから日別売上を集計し、折れ線グラフとして表�
 ## 実行方法
 ```bash
 python3 sales_total.py
-## 実行結果の例
+```
 
+## 実行結果の例
 ![日別売上の推移](sales_line_chart.png)
+
