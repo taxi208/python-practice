@@ -36,3 +36,7 @@ mean_sales = df['sales'].mean()
 
 print(f"売上合計: {total_sales}")
 print(f"売上平均: {mean_sales:.2f}")
+# 売上上位3日の抽出
+top3 = df.sort_values(by="sales", ascending=False).head(3)
+print("売上上位3日:")
+print(top3)
