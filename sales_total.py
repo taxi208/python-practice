@@ -22,6 +22,7 @@ plt.xticks(rotation=45)
 plt.grid(True)
 plt.legend()
 plt.tight_layout()
+plt.savefig("sales_chart.png")
 plt.savefig("sales_line_chart.png")
 plt.show()
 
