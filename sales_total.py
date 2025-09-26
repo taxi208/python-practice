@@ -41,3 +41,15 @@ print(f"売上平均: {mean_sales:.2f}")
 top3 = df.sort_values(by="sales", ascending=False).head(3)
 print("売上上位3日:")
 print(top3)
+if 1 != 2 and 3 == 3:
+    print("OK")
+
+# Fira Code 確認用
+a = 1 != 2
+b = 3 == 3
+c = [1, 2, 3]
+#d = c -> str  # Pythonではエラーになるけどフォント確認用
+
+if a != b and b >= c:
+    print("OK")
+
