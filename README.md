@@ -29,3 +29,9 @@ print("合計売上:", df["売上"].sum())
 上記のグラフにより、売上の傾向や平均を一目で把握できるようになりました。
 
 feat: add sales visualization with mean line
+### 可視化結果
+- 棒グラフ：各月の売上
+- 折れ線：売上推移
+- 赤線：平均売上
+
+![sales_chart](sales_chart.png)
