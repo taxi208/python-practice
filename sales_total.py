@@ -50,6 +50,18 @@ b = 3 == 3
 c = [1, 2, 3]
 #d = c -> str  # Pythonではエラーになるけどフォント確認用
 
-if a != b and b >= c:
-    print("OK")
+#if a != b and b >= c:
+#    print("OK")
+
+
+
+import pandas as pd
+
+# CSVを読み込む
+df = pd.read_csv("sales_data.csv")
+
+# 基本的な集計
+print("合計売上:", df["売上"].sum())
+print("平均売上:", df["売上"].mean())
+print("件数:", len(df))
 
