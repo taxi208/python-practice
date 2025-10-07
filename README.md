@@ -35,3 +35,27 @@ feat: add sales visualization with mean line
 - 赤線：平均売上
 
 ![sales_chart](sales_chart.png)
+
+
+
+
+
+---
+
+### 📊 前年比較グラフの追加 (2024 vs 2025)
+
+`python3 sales_total.py` を実行すると、以下のファイルも生成されます：
+
+- `sales_compare_year.png`  
+  → 2024年と2025年の**月別売上を棒グラフで比較**し、成長傾向を可視化  
+  → 平均線も表示され、前年との伸びが一目で分かります  
+
+例：  
+![sales_compare_year](sales_compare_year.png)
+
+---
+
+### 今後の拡張予定
+- 成長率（前年比％）の算出  
+- 月別ランキングCSV出力  
+- Plotlyによるインタラクティブグラフ化  
