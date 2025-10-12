@@ -87,6 +87,11 @@ feat: add sales visualization with mean line
 
 ---
 
+## 📈 グラフサンプル
+
+![月別売上グラフ](outputs/docs/sales_monthly_chart.png)
+
+
 ## 🧩 今後の予定
 - 月別平均グラフの追加  
 - 高売上ランキングの自動抽出  
@@ -97,3 +102,4 @@ feat: add sales visualization with mean line
 ## ✍️ Author
 **isseyrickowens**  
 Python練習・副業開発の記録用リポジトリ
+
