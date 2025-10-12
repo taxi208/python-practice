@@ -59,3 +59,41 @@ feat: add sales visualization with mean line
 - 成長率（前年比％）の算出  
 - 月別ランキングCSV出力  
 - Plotlyによるインタラクティブグラフ化  
+
+# 📊 Sales Data Visualization
+
+このプロジェクトでは、Python を使って売上データを可視化しました。  
+`pandas` でデータを読み込み、`matplotlib` と `plotly` でグラフを作成しています。
+
+---
+
+## 🔧 使用ツール
+- Python 3
+- pandas
+- matplotlib
+- plotly
+- GitHub Pages
+
+---
+
+## 🚀 実行内容
+1. `sales_data.csv` を読み込み  
+2. 月別・日別売上グラフを作成  
+3. Plotly版の動くグラフをHTML出力  
+4. GitHub PagesでWeb公開  
+
+📈 公開ページ：  
+👉 [日別売上グラフ（Plotly版）](https://taxi208.github.io/python-practice/sales_plot.html)
+
+---
+
+## 🧩 今後の予定
+- 月別平均グラフの追加  
+- 高売上ランキングの自動抽出  
+- READMEに画像サンプル追加
+
+---
+
+## ✍️ Author
+**isseyrickowens**  
+Python練習・副業開発の記録用リポジトリ
