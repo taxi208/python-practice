@@ -9,6 +9,21 @@
 - matplotlib
 
 ## 実行方法
+
+---
+
+## 🧩 プロジェクト概要
+
+このリポジトリは、Pythonを使って売上データを自動集計・可視化する練習プロジェクトです。  
+日別・月別の売上グラフや、上位ランキングのCSV出力を自動生成します。
+
+---
+
+## 🚀 実行方法
+
+```bash
+python3 sales_total.py
+
 ```bash
 python3 sales_total.py
 ## 出力例
@@ -108,3 +123,10 @@ https://github.com/taxi208/python-practice/blob/main/docs/sales_monthly_chart.pn
 **isseyrickowens**  
 Python練習・副業開発の記録用リポジトリ
 
+## 🏆 high_sales.py（上位売上ランキング）
+
+- `sales_data.csv` から売上上位10件を抽出
+- 出力ファイル：
+  - [outputs/high_sales.csv](./outputs/high_sales.csv)
+  - [outputs/top_sales.csv](./outputs/top_sales.csv)
+- 今後はグラフ出力にも対応予定（Plotly版）
