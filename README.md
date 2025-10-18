@@ -105,7 +105,8 @@ feat: add sales visualization with mean line
 ## 🧾 グラフサンプル
 ## 📊 グラフサンプル
 
-![月別売上グラフサンプル](docs/sales_monthly_chart.png)
+![月別売上グラフサンプル](./docs/sales_monthly_chart.png)
+
 
 
 
