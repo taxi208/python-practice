@@ -104,12 +104,14 @@ feat: add sales visualization with mean line
 
 ![月別売上グラフサンプル](https://raw.githubusercontent.com/taxi208/python-practice/main/docs/sales_monthly_chart.png)
 
-
 ## 📊 上位10件の売上グラフ（Plotly版）
 
-[➡️ こちらから動作サンプルを見る](https://taxi208.github.io/python-practice/docs/top_sales_plot.html)
+![上位10件のグラフプレビュー](https://raw.githubusercontent.com/taxi208/python-practice/main/docs/sales_monthly_chart.png)
+
+[➡️ こちらから動作サンプルを見る（Plotly版）](https://taxi208.github.io/python-practice/docs/top_sales_plot.html)
 
 ※インタラクティブに動作します（マウスホバー対応）
+
 
 
 
