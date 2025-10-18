@@ -103,9 +103,8 @@ feat: add sales visualization with mean line
 ---
 
 ## 🧾 グラフサンプル
-## 📊 グラフサンプル
+![月別売上グラフサンプル](https://github.com/taxi208/python-practice/blob/main/docs/sales_monthly_chart.png?raw=true)
 
-![月別売上グラフサンプル](./docs/sales_monthly_chart.png)
 
 
 
