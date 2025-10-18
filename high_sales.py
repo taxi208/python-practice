@@ -1,3 +1,5 @@
+import plotly.express as px
+
 # high_sales.py
 import pandas as pd
 
@@ -16,3 +18,17 @@ top10.to_csv(output_file, index=False, encoding="utf-8-sig")
 
 print("✅ high_sales.csv を出力しました！")
 
+# === 5. Plotlyで上位10件の棒グラフを作成 ===
+fig = px.bar(
+    top10,
+    x="date",          # ← CSVの列名に合わせる
+    y="sales",         # ← 同じく列名どおり
+    title="上位10件の売上ランキング",
+    color="sales",
+    color_continuous_scale="Oranges"
+)
+
+# HTMLに出力
+fig.write_html("outputs/top_sales_plot.html")
+
+print("✅ 上位10件のグラフを出力しました → outputs/top_sales_plot.html")
