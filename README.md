@@ -24,8 +24,6 @@
 ```bash
 python3 sales_total.py
 
-```bash
-python3 sales_total.py
 ## 出力例
 - sales_chart.png : 日別売上の折れ線グラフ
 - high_sales.csv : 売上が指定値以上の日を抽出したCSV
@@ -50,7 +48,6 @@ feat: add sales visualization with mean line
 - 赤線：平均売上
 
 ![sales_chart](sales_chart.png)
-
 
 
 
@@ -103,6 +100,10 @@ feat: add sales visualization with mean line
 ---
 
 ![月別売上グラフサンプル](https://raw.githubusercontent.com/taxi208/python-practice/main/docs/sales_monthly_chart.png)
+
+## 売上グラフ（サンプル）
+![売上グラフ](outputs/sales_chart.png)
+![日別売上グラフ（静止画）](https://raw.githubusercontent.com/taxi208/python-practice/main/outputs/sales_chart.png)
 
 
 
