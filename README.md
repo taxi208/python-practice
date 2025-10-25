@@ -32,6 +32,11 @@ python3 sales_total.py
 
 ![日別売上グラフ](https://raw.githubusercontent.com/taxi208/python-practice/main/outputs/sales_chart.png)
 
+---
+
+## 📊 最後の確認：画像埋め込みテスト
+
+<img src="https://raw.githubusercontent.com/taxi208/python-practice/main/outputs/sales_chart.png" width="600">
 
 
 
