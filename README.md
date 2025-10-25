@@ -31,3 +31,6 @@ python3 sales_total.py
 
 ![日別売上グラフ](https://raw.githubusercontent.com/taxi208/python-practice/main/outputs/sales_chart.png)
 
+
+
+
