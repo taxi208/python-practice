@@ -25,3 +25,9 @@ Pythonを使って売上データを自動集計・可視化する練習プロ�
 
 ```bash
 python3 sales_total.py
+---
+
+## 📈 売上グラフ（サンプル）
+
+![日別売上グラフ](https://raw.githubusercontent.com/taxi208/python-practice/main/outputs/sales_chart.png)
+
