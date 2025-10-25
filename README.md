@@ -102,7 +102,7 @@ feat: add sales visualization with mean line
 ![月別売上グラフサンプル](https://raw.githubusercontent.com/taxi208/python-practice/main/docs/sales_monthly_chart.png)
 
 ## 売上グラフ（サンプル）
-![売上グラフ](outputs/sales_chart.png)
+
 ![日別売上グラフ（静止画）](https://raw.githubusercontent.com/taxi208/python-practice/main/outputs/sales_chart.png)
 
 
