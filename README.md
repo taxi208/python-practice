@@ -12,7 +12,7 @@ Pythonを使って売上データを自動集計・可視化する練習プロ�
 
 ---
 
-## 🔧 使用技術
+## 🧰 使用技術
 - Python 3.9
 - pandas
 - matplotlib
@@ -25,14 +25,3 @@ Pythonを使って売上データを自動集計・可視化する練習プロ�
 
 ```bash
 python3 sales_total.py
-
----
-
-これでMarkdown構文が完璧になる🎯  
-そのまま保存 →  
-```bash
-git add README.md
-git commit -m "Fix code block syntax"
-git push
-
-
