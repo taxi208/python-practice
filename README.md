@@ -38,7 +38,17 @@ python3 sales_total.py
 
 <img src="https://raw.githubusercontent.com/taxi208/python-practice/main/outputs/sales_chart.png" width="600">
 
+---
 
+## 🏆 上位10件の売上ランキング（Plotly版）
+
+`high_sales.py` を実行すると、売上データから上位10件を抽出し、
+インタラクティブな棒グラフ（`outputs/top_sales_plot.html`）を自動生成します。
+
+```bash
+python3 high_sales.py
+
+---
 
 
 
