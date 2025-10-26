@@ -50,5 +50,9 @@ python3 high_sales.py
 
 ---
 
+## 🌐 公開ページ（GitHub Pages）
+[▶ グラフを見る（GitHub Pages版）](https://taxi208.github.io/python-practice/)
+
+
 
 
