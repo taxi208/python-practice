@@ -4,9 +4,8 @@ import os
 
 # === ファイルパス設定 ===
 output_dir = "outputs"
-docs_dir = os.path.join(output_dir, "docs")
+docs_dir = "docs"
 index_html = os.path.join(docs_dir, "index.html")
-
 # === HTML構築 ===
 now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
@@ -49,14 +48,14 @@ html_content = f"""
     <h1>📊 売上ダッシュボード</h1>
     <p class="updated">最終更新日時：{now}</p>
 
-    <h2>① 全体売上グラフ</h2>
-    <iframe src="../sales_plot.html"></iframe>
+    
+<h2>① 全体売上グラフ</h2>
+<iframe src="./sales_plot.html"></iframe>
 
-    <h2>② 上位10件ランキング</h2>
-    <iframe src="../top_sales_plot.html"></iframe>
-
-    <hr>
-    <p>✅ 自動生成 by auto_sales_report.py</p>
+<h2>② 上位10件ランキング</h2>
+<iframe src="./top_sales_plot.html"></iframe>
+<hr>
+<p>✅ 自動生成 by auto_sales_report.py</p>
 </body>
 </html>
 """
