@@ -53,6 +53,20 @@ python3 high_sales.py
 ## 🌐 公開ページ（GitHub Pages）
 [▶ グラフを見る（GitHub Pages版）](https://taxi208.github.io/python-practice/)
 
+---
+
+## 🤖 自動売上レポート（完全自動化）
+
+`auto_sales_report.py` を実行すると、  
+以下の処理がすべて自動で行われます。
+
+- 各スクリプト（`sales_total.py`, `high_sales.py`, `generate_index.py`）を順に実行  
+- `report_log.txt` に実行ログを記録  
+- `.env` からGmailパスワードを安全に読み込み  
+- 最新グラフ（PNG / HTML）をメールに添付して送信  
+
+```bash
+python3 auto_sales_report.py
 
 
 
