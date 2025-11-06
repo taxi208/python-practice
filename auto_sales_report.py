@@ -98,4 +98,29 @@ attachments = [
 
 send_report_via_email(attachments, sender, password, receiver)
 log("✅ 自動処理がすべて完了しました！\n")
+import requests
+import os
+from dotenv import load_dotenv
+
+# .envの読み込み
+load_dotenv()
+
+# Slack通知の設定
+webhook_url = os.getenv("SLACK_WEBHOOK_URL")
+
+if webhook_url:
+    message = {
+        "text": "✅ 売上レポートの自動生成が完了しました！\n📊 出力ファイル: outputs/sales_chart.png / outputs/top_sales_plot.html"
+    }
+    try:
+        response = requests.post(webhook_url, json=message)
+        if response.status_code == 200:
+            print("Slack通知を送信しました。")
+        else:
+            print(f"Slack通知エラー: {response.status_code}")
+    except Exception as e:
+        print(f"Slack送信中にエラー発生: {e}")
+else:
+    print("Slack Webhook URL が設定されていません。")
+
 
