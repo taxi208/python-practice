@@ -104,6 +104,13 @@ from dotenv import load_dotenv
 
 # .envの読み込み
 load_dotenv()
+import pandas as pd
+
+# 売上データの集計
+df = pd.read_csv("high_sales.csv")
+total_sales = df["sales"].sum()
+sales_count = len(df)
+
 
 # Slack通知（A＋：カラー付きバージョン）
 webhook_url = os.getenv("SLACK_WEBHOOK_URL")
@@ -121,6 +128,8 @@ if webhook_url:
                     {
                         "type": "section",
                         "fields": [
+                            {"type": "mrkdwn", "text": f"💰 *総売上金額:* ¥{total_sales:,}"},
+                            {"type": "mrkdwn", "text": f"🧾 *売上件数:* {sales_count}件"},
                             {"type": "mrkdwn", "text": f"*📅 実行日時:*\n{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"},
                             {"type": "mrkdwn", "text": "*💻 実行者:*\n@issey"}
                         ]
