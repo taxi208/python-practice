@@ -105,22 +105,54 @@ from dotenv import load_dotenv
 # .envの読み込み
 load_dotenv()
 
-# Slack通知の設定
+# Slack通知（A＋：カラー付きバージョン）
 webhook_url = os.getenv("SLACK_WEBHOOK_URL")
 
 if webhook_url:
     message = {
-        "text": "✅ 売上レポートの自動生成が完了しました！\n📊 出力ファイル: outputs/sales_chart.png / outputs/top_sales_plot.html"
+        "attachments": [
+            {
+                "color": "#36a64f",  # ← 成功メッセージ用の緑色
+                "blocks": [
+                    {
+                        "type": "header",
+                        "text": {"type": "plain_text", "text": "✅ 売上レポート自動生成 完了！"}
+                    },
+                    {
+                        "type": "section",
+                        "fields": [
+                            {"type": "mrkdwn", "text": f"*📅 実行日時:*\n{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"},
+                            {"type": "mrkdwn", "text": "*💻 実行者:*\n@issey"}
+                        ]
+                    },
+                    {
+                        "type": "section",
+                        "fields": [
+                            {"type": "mrkdwn", "text": "*📊 グラフ:*\n<https://github.com/taxi208/python-practice/blob/main/outputs/sales_chart.png|sales_chart.png>"},
+                            {"type": "mrkdwn", "text": "*🏆 ランキング:*\n<https://github.com/taxi208/python-practice/blob/main/outputs/top_sales_plot.html|top_sales_plot.html>"}
+                        ]
+                    },
+                    {
+                        "type": "context",
+                        "elements": [
+                            {"type": "plain_text", "text": "Python自動レポートシステム (by ChatGPTカリキュラム)"}
+                        ]
+                    }
+                ]
+            }
+        ]
     }
+
     try:
         response = requests.post(webhook_url, json=message)
         if response.status_code == 200:
-            print("Slack通知を送信しました。")
+            print("Slackカラー通知を送信しました。")
         else:
             print(f"Slack通知エラー: {response.status_code}")
     except Exception as e:
         print(f"Slack送信中にエラー発生: {e}")
 else:
     print("Slack Webhook URL が設定されていません。")
+
 
 
