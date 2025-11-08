@@ -91,5 +91,9 @@ python3 auto_sales_report.py
 - スクリーンショット：
   - `/images/report_terminal.png`
   - `/images/report_mail.png`
-
+Slack通知A+版の実装
+✅ Slack通知A＋版の実装  
+- 総売上金額と売上件数をSlackメッセージ内に表示  
+- 成功時は緑色（#36a64f）で通知  
+- 出力リンク（グラフ／ランキング）を自動添付
 
