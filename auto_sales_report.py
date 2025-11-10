@@ -25,9 +25,10 @@ logging.basicConfig(
 )
 
 def log(msg):
-    """ログ出力＋ターミナル表示"""
+    """ログを出力し、ターミナルにも表示する"""
     print(msg)
     logging.info(msg)
+
 
 def log_success(script_name, elapsed):
     log(f"✅ {script_name} 実行成功（{elapsed:.2f}秒）")
@@ -163,5 +164,17 @@ if webhook_url:
 else:
     print("Slack Webhook URL が設定されていません。")
 
+import json
+from datetime import datetime
+
+log_data = {
+    "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+    "status": "success",
+    "executed_scripts": ["sales_total.py", "high_sales.py", "generate_index.py"],
+    "attachments": ["sales_chart.png", "top_sales_plot.html"],
+}
+
+with open("report_log.json", "a", encoding="utf-8") as f:
+    f.write(json.dumps(log_data, ensure_ascii=False) + "\n")
 
 
