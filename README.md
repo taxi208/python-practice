@@ -107,3 +107,24 @@ Slack通知A+版の実装
   - 実行時のフォント警告の解消（AppleGothic → 日本語フォント指定）
 📂 出力フォルダ： `/outputs/`（グラフ・CSV・HTMLファイルを自動生成）
 ---
+---
+
+## 🧩 練習セット3：エラー練習＆可視化テスト（error_practice_04.py）
+
+このセクションでは、Python と matplotlib を使って売上データを読み込み、
+日本語対応の折れ線グラフを自動生成する練習を行いました。
+
+- pandas による CSV 読み込みの確認  
+- matplotlib で日本語フォント設定（AppleGothic）  
+- `plt.savefig()` による自動保存処理の確認  
+
+### 📊 出力結果（sales_line_test.png）
+
+<img src="https://raw.githubusercontent.com/taxi208/python-practice/main/outputs/sales_line_test.png" width="600">
+※この練習では日本語フォント設定（AppGothic）と自動保存処理を通じて、グラフ生成の流れを理解しました。
+
+
+生成スクリプト: `error_practice_04.py`  
+出力先: `/outputs/sales_line_test.png`
+
+---
