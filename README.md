@@ -1,43 +1,63 @@
-## 🧠 プロジェクト概要
-
-このリポジトリは、売上データを自動で集計・可視化し、
-レポートをGmail経由で送信する「自動レポート生成システム」です。
-
-**目的：**
-- Pythonスクリプトによる業務自動化の実践
-- logging / subprocess / smtplib など、実務で使われる標準モジュールの理解
-- `.env`を用いた環境変数管理とセキュリティ対応
-
-**想定シーン：**
-- 毎日定時に売上報告を自動生成して上司へメール送信
-- クラウドや共有ドライブへ自動出力
-
-# python-practice
-（システム名の位置にタイトルだけ残す）
-
-
-このリポジトリは、Python を使った売上データの集計と可視化の練習用です。  
-日別売上をグラフ化し、平均線・ランキング出力・合計/平均の算出まで行いました。
+# python-practice 🐍📊  
+売上データを自動集計し、グラフ生成・上位ランキング作成・  
+レポートを自動作成する「自動レポート生成システム」です。
 
 ---
 
-Pythonを使って売上データを自動集計・可視化する練習プロジェクトです。  
-日別・月別の売上グラフや、上位ランキングのCSV出力を自動生成します。
+## 📌 プロジェクト概要
+
+Pythonを使って、売上データの集計・可視化・自動化を行う実践プロジェクトです。
+以下の処理をまとめて自動化し、日別/月別の売上レポートを自動作成します。
+
+### 🔧 主な機能
+- Pythonスクリプトによる売上集計処理
+- 折れ線グラフ / ランキング表 / HTMLレポートの自動生成
+- logging / subprocess / SMTP / .env の基本操作を習得
+- ローカルでの実行（macOS）
+- Gmail の SMTP を使ったメール送信
+- 画像・HTMLファイルの一括出力
+- GitHub Pages への成果物公開
 
 ---
 
-## 🧰 使用技術
+## 🗂 ディレクトリ構成
+
+```txt
+python-practice/
+├── sales_total.py
+├── high_sales.py
+├── generate_index.py
+├── auto_sales_report.py
+├── error_practice_01.py
+├── error_practice_02.py
+├── error_practice_03.py
+├── error_practice_04.py
+├── sales_data.csv
+├── outputs/
+│   ├── sales_chart.png
+│   ├── top_sales_plot.html
+│   ├── report_mail.png
+│   └── sales_line_test.png
+└── images/
+    └── report_terminal.png
+
+
+---
+
+## 🧪 使用技術（Tech Stack）
+
 - Python 3.9
 - pandas
 - matplotlib
-- plotly
+- Plotly
 - GitHub Pages
 
 ---
 
-## 🚀 実行方法
+## 🚀 実行方法（基本）
 
-```bash
+### 売上集計（折れ線グラフ生成）
+bash
 python3 sales_total.py
 
 ---
@@ -48,83 +68,78 @@ python3 sales_total.py
 
 ---
 
-## 📊 最後の確認：画像埋め込みテスト
+## 🥇 上位10件の売上ランキング（Plotly版）
 
-<img src="https://raw.githubusercontent.com/taxi208/python-practice/main/outputs/sales_chart.png" width="600">
+売上データから上位10件を抽出し、
+インタラクティブな棒グラフとして自動生成します（HTML出力）。
 
----
-
-## 🏆 上位10件の売上ランキング（Plotly版）
-
-`high_sales.py` を実行すると、売上データから上位10件を抽出し、
-インタラクティブな棒グラフ（`outputs/top_sales_plot.html`）を自動生成します。
-
-```bash
+bash
 python3 high_sales.py
 
----
-
-## 🌐 公開ページ（GitHub Pages）
-[▶ グラフを見る（GitHub Pages版）](https://taxi208.github.io/python-practice/)
+出力先：`outputs/top_sales_plot.html`
 
 ---
 
-## 🤖 自動売上レポート（完全自動化）
+## 🌍 公開ページ（GitHub Pages）
+https://taxi208.github.io/python-practice/
 
-`auto_sales_report.py` を実行すると、  
-以下の処理がすべて自動で行われます。
+---
 
-- 各スクリプト（`sales_total.py`, `high_sales.py`, `generate_index.py`）を順に実行  
-- `report_log.txt` に実行ログを記録  
-- `.env` からGmailパスワードを安全に読み込み  
-- 最新グラフ（PNG / HTML）をメールに添付して送信  
+## 📦 自動レポート作成（まとめて実行）
 
-```bash
+以下のメインスクリプトで各処理を一括実行できます。
+bash
 python3 auto_sales_report.py
 
-## 🧩 実行結果メモ（2025-11-06）
-- ✅ 売上レポート自動生成完了（Python 3.13.7, macOS）
-- ✅ Gmail通知・添付ファイル送信確認済み
-- 出力ファイル：
-  - `outputs/sales_chart.png`
-  - `outputs/top_sales_plot.html`
-- スクリーンショット：
-  - `/images/report_terminal.png`
-  - `/images/report_mail.png`
-Slack通知A+版の実装
-✅ Slack通知A＋版の実装  
-- 総売上金額と売上件数をSlackメッセージ内に表示  
-- 成功時は緑色（#36a64f）で通知  
-- 出力リンク（グラフ／ランキング）を自動添付
 
-## 🔹 2025-11-10 更新
-### 自動売上レポート（auto_sales_report.py）
-- 3つのスクリプトを自動実行し、レポートを生成するメインスクリプトを完成。
-- 実行確認済み（✅ sales_total.py / high_sales.py / generate_index.py）
-- ログ出力・完了メッセージ・HTML/CSV/PNG生成すべて成功。
-- 今後の拡張予定：
-  - メール送信機能を実際にSMTPで動作確認
-  - 実行時のフォント警告の解消（AppleGothic → 日本語フォント指定）
-📂 出力フォルダ： `/outputs/`（グラフ・CSV・HTMLファイルを自動生成）
----
----
-
-## 🧩 練習セット3：エラー練習＆可視化テスト（error_practice_04.py）
-
-このセクションでは、Python と matplotlib を使って売上データを読み込み、
-日本語対応の折れ線グラフを自動生成する練習を行いました。
-
-- pandas による CSV 読み込みの確認  
-- matplotlib で日本語フォント設定（AppleGothic）  
-- `plt.savefig()` による自動保存処理の確認  
-
-### 📊 出力結果（sales_line_test.png）
-
-<img src="https://raw.githubusercontent.com/taxi208/python-practice/main/outputs/sales_line_test.png" width="600">
-※この練習では日本語フォント設定（AppGothic）と自動保存処理を通じて、グラフ生成の流れを理解しました。
-
-
-生成スクリプト: `error_practice_04.py`  
-出力先: `/outputs/sales_line_test.png`
+### 🔄 実行される処理フロー
+1. 売上集計（sales_total.py）
+2. 上位10件ランキング（high_sales.py）
+3. レポートHTML生成（generate_index.py）
+4. 画像・CSV・HTMLを `/outputs` にまとめて保存
+5. Gmail SMTPでメール送信
+6. ログファイル（report_log.txt）を保存
 
 ---
+
+## 🧪 練習セット（error_practice_01〜04）
+
+### 練習セット3：エラー練習 & 可視化テスト（error_practice_04.py）
+
+- pandas による CSV 読み込み
+- matplotlib で日本語フォント設定（AppleGothic）
+- `plt.savefig()` による画像書き出し
+
+### 出力結果
+
+![sales_line_test](https://raw.githubusercontent.com/taxi208/python-practice/main/outputs/sales_line_test.png)
+
+生成スクリプト：`error_practice_04.py`
+出力先：`/outputs/sales_line_test.png`
+
+---
+
+## 🔧 今後のアップデート予定
+
+- README の画像埋め込みを整理
+- `high_sales.py` の Plotly 対応（インタラクティブ棒グラフ）
+- メール送信テンプレートを HTML化
+- ログ強化（エラー検知 → Slack 通知）
+- GitHub Actions による自動実行（CI/CD 化）
+
+---
+
+## 📄 ライセンス
+
+MIT License  
+本プロジェクトは自由に利用・改変できます。
+
+---
+
+## 📝 補足
+
+このプロジェクトは、Python の基礎文法 → データ加工 → グラフ生成 → 自動化 → 公開  
+までの流れを一通り実践するための学習用リポジトリです。
+
+継続して改善を行い、業務自動化・データ分析スキルの向上を目的としています。
+
