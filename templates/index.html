@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>フォームテスト</title>
+</head>
+<body>
+    <h1>名前を入力してください</h1>
+    <form action="/" method="POST">
+        <input type="text" name="username" placeholder="名前を入力" required>
+        <button type="submit">送信</button>
+    </form>
+    {% if name %}
+        <h2>こんにちは、{{ name }}さん！</h2>
+    {% endif %}
+</body>
+</html>
