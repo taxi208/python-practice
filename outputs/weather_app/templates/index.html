@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>天気アプリ</title>
+</head>
+<body>
+    <h1>🌤 天気チェック</h1>
+
+    <form action="/weather" method="POST">
+        <input type="text" name="city" placeholder="都市名を入力（例：Tokyo）">
+        <button type="submit">天気を見る</button>
+    </form>
+
+    {% if temp %}
+    <h2>📍 {{ city }} の現在の気温</h2>
+    <p><strong>{{ temp }}℃</strong></p>
+    {% endif %}
+</body>
+</html>
