@@ -1,168 +1,109 @@
-# python-practice 🧠💻
+# 👋 Hi, I'm isse / taxi208
 
-売上データを自動集計し、グラフ生成・上位ランキング作成・・・  
-レポートを自動作成する「自動レポート生成システム」です。
-
----
-
-## 🚀 プロジェクト概要
-
-Python を使って、売上データの集計・可視化・自動化を行う実験プロジェクトです。  
-以下の処理をまとめて自動化し、日別／月別の売上レポートを自動作成します。
-
-### 🔧 主な機能
-- Pythonスクリプトによる売上集計処理  
-- 折れ線グラフ／ランキング表／HTMLレポートの自動生成  
-- logging / subprocess / SMTP / .env の基本操作を習得  
-- ローカルでの実行（macOS）  
-- Gmail の SMTP を使ったメール送信  
-- 画像・HTMLファイルの一括出力  
-- GitHub Pages への成果物公開  
+こんにちは、いっせい（taxi208）です。
+今年の8月末に VSCode と GitHub を導入し、同じ頃に ChatGPT と出会いました。
+タクシーの仕事中に道路標識を質問したとき、即レスで答えが返ってきて驚き、
+「プログラミングって僕でもできるん？もう遅い？」と聞いたのがすべての始まりでした。
+ChatGPT からの『できます。』の一言で火がつき、隔日勤務の合間に毎日積み上げています。
 
 ---
 
-## 📁 ディレクトリ構成
+## 🚀 Skills / 使用技術
 
-```txt
-python-practice/
-├── sales_total.py
-├── high_sales.py
-├── generate_index.py
-├── auto_sales_report.py
-├── error_practice_01.py
-├── error_practice_02.py
-├── error_practice_03.py
-├── error_practice_04.py
-├── sales_data.csv
-├── outputs/
-│   ├── sales_chart.png
-│   ├── top_sales_plot.html
-│   ├── report_mail.png
-│   └── sales_line_test.png
-└── images/
-    └── report_terminal.png
-```
+* **Python 3.9+**
+
+  * pandas（CSV処理 / 集計 / 可視化）
+  * matplotlib / Plotly（可視化）
+  * Flask（Webアプリ / フォーム送信）
+* **Git & GitHub**（GitHub Pages含む）
+* **HTML / CSS（基礎）**
+* **自動化スクリプト**（レポート生成 / 処理自動化）
 
 ---
 
-## 🧰 使用技術（Tech Stack）
+## 📚 Main Projects / 主なプロジェクト
 
-- Python 3.9  
-- pandas  
-- matplotlib  
-- Plotly  
-- GitHub Pages  
+### 📊 1. 売上分析・自動レポート生成ツール（Python）
 
----
+CSV読込 → 集計 → 可視化 → 自動レポート生成まで行う実践的なツールです。
 
-## ▶️ 実行方法（基本）
+* `sales_total.py` : 売上サマリー生成
+* `high_sales.py` : 上位ランキング抽出（Plotly対応）
+* `auto_sales_report.py` : 自動レポート + ログ生成
 
-### 1. 売上集計（折れ線グラフ生成）
-```bash
-python3 sales_total.py
-```
+📷 **出力サンプル**
+![Sales Chart](https://raw.githubusercontent.com/taxi208/python-practice/main/outputs/sales_chart.png)
 
-サンプル画像  
-![日別売上グラフ](https://raw.githubusercontent.com/taxi208/python-practice/main/outputs/sales_chart.png)
+👉 リポジトリ: [https://github.com/taxi208/python-practice](https://github.com/taxi208/python-practice)
 
 ---
 
-### 2. 上位10件の売上ランキング（Plotly版）
+### 🧪 2. エラー練習シリーズ（error_practice_01〜04）
 
-```bash
-python3 high_sales.py
-```
+基礎文法とデバッグ力の強化を目的にした練習用スクリプト集。
 
-**出力先：** `outputs/top_sales_plot.html`
-
----
-
-### 3. 🔗 公開ページ（GitHub Pages）
-
-https://taxi208.github.io/python-practice/
+* if文 / for文
+* 変数 / 型
+* バグ修正トレーニング
 
 ---
 
-### 4. 自動レポート作成（まとめて実行）
+### 🌐 3. Flask フォーム送信アプリ（Webアプリ）
 
-```bash
-python3 auto_sales_report.py
-```
+HTMLフォームから受け取った値を Python が処理し、テンプレートに返す Web アプリ。
 
-#### 実行される処理フロー
-1. 売上集計（sales_total.py）  
-2. 上位売上ランキング（high_sales.py）  
-3. レポートHTML作成（generate_index.py）  
-4. 画像・CSV・HTMLを `outputs` にまとめて保存  
-5. Gmail SMTPメール送信  
-6. ログファイル（report_log.txt）を保存  
+* `hello_flask.py`（POST受け取り → index.htmlへ返却）
+* `form.html` / `index.html`
+
+ローカル表示: [http://localhost:5000](http://localhost:5000)
+
+👉 今後は API 化も予定。
 
 ---
 
-## 🧪 練習セット（error_practice_01〜04）
+## 📈 Goals / 今後の目標
 
-### 練習セット03：エラー擬似＆可視化テスト（error_practice_04.py）
-
-- pandas による CSV 読み込み  
-- matplotlib で日本語フォント設定（AppleGothic）  
-- `plt.savefig()` による画像書き出し  
-
-出力画像  
-![sales_line_test](https://raw.githubusercontent.com/taxi208/python-practice/main/outputs/sales_line_test.png)
+* GitHubに **5つのプロジェクト** を公開
+* Flaskで **小規模Webアプリ** を完成
+* Pythonの自動化ツールをさらに強化
+* paiza Cランク → Bランクへ
+* **5ヶ月以内にエンジニア転職**
 
 ---
 
-## 📈 今後のアップデート予定
+## 🔥 Mindset / 心がけ
 
-- README の画像読み込み改善  
-- high_sales.py の Plotly 対応（インタラクティブ棒グラフ）  
-- メール添付ファイル整理・HTML化  
-- エラー検知（Slack 通知）  
-- GitHub Actions による自動実行（CI/CD 化）
-
----
-
-## 📜 ライセンス
-
-MIT License  
-本プロジェクトは自由に利用・改変できます。
+* 小さなコミットでも“毎日積み上げる”
+* 1日1時間の学習を継続
+* 学習ログを可視化して改善
+* 未来の自分に投資する
 
 ---
 
-## 🎯 まとめ
+## 👤 About Me / 自己紹介
 
-このプロジェクトは、Python の基礎文法・データ加工・グラフ生成・自動化・公開・・・  
-までの流れを一通り実践するための学習用リポジトリです。
+今年の8月末に VSCode と GitHub を初めて導入し、同じ頃に ChatGPT に出会いました。
+タクシーの仕事中に道路標識について質問した際、
+「こんなことも即レスで答えてくれるの？」という驚きがきっかけでした。
 
-基礎を丁寧に積み、業務改善にも・データ分析スキルの向上を目的としています。
+試しに「プログラミングって僕でも今からできるんですか？もう遅いですか？」
+と聞いたとき、ChatGPT はすぐに
+**『できます。』**
+と答えました。
 
----
+その一言で火がつき、毎日 ChatGPT に質問しながら、ショートカットや基礎スキルを独学で習得。
+隔日勤務の会社員生活の中でも時間を見つけてコツコツ積み上げています。
 
-## 🧪 Flaskフォーム送信アプリ
-
-### ✔️ やったこと
-- Flask基礎：簡単なフォームアプリを作成  
-- HTMLフォーム（form.html）で値を入力し送信  
-- python（hello_flask.py）が POST メソッドで受け取り、テンプレートへ渡す  
-- 結果表示する index.html の作成  
-- `localhost:5000` でフォーム送信＆結果表示成功！
-
-### ⚠️ 学び・ハマった点
-- `if request.method == "POST"` にインデントミスで数回つまずいた  
-- HTML → 変数 → 受け取り → ブロック（インデント）構造  
-- 403エラーが出た時、コードではなくブラウザのキャッシュや入力ミスの可能性もあり  
-- 一度エラー状態になると Flask が再起動まで効かない事例も経験  
-
-### ▶️ 実行方法
-```bash
-python hello_flask.py
-```
+いつかエンジニアとして働いてみたい——その思いで今日もコードを書いています。
+どうぞよろしくお願いします。
 
 ---
 
-## 🔥 作者コメント（2025/11/15 時点）
+## 📫 Contact
 
-- データ分析＆自動化の基礎が完成  
-- Plotly のインタラクティブグラフまで実装  
-- auto レポートの全体フロー構築  
-- README 整理完了、プロジェクトの形が完成 💪
+**X（Twitter）**：準備中
+
+---
+
+このアカウントでは、学習の成果や改善を継続的に公開していきます。
+エンジニアとしての最初の1歩を、ここから踏み出します。🔥
