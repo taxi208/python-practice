@@ -13,6 +13,9 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
 from dotenv import load_dotenv
+import pandas as pd
+import requests
+
 
 # === 0. 環境変数の読み込み ===
 load_dotenv()
@@ -88,39 +91,28 @@ def send_report_via_email(attachments, sender, password, receiver):
         log(f"⚠️ メール送信失敗: {str(e)}")
 
 # === 5. メール送信を実行 ===
-sender = "issey.rickowens@gmail.com"
-password = os.getenv("EMAIL_PASSWORD")
-receiver = "issey.rickowens@gmail.com"
-
-attachments = [
-    "outputs/sales_chart.png",
-    "outputs/top_sales_plot.html"
-]
-
-send_report_via_email(attachments, sender, password, receiver)
-log("✅ 自動処理がすべて完了しました！\n")
-import requests
-import os
-from dotenv import load_dotenv
-
-# .envの読み込み
-load_dotenv()
-import pandas as pd
-
-# 売上データの集計
+send_report_via_email(
+    attachments=[
+        "outputs/sales_chart.png",
+        "outputs/top_sales_plot.html"
+    ],
+    sender="issey.rickowens@gmail.com",
+    password=os.getenv("EMAIL_PASSWORD"),
+    receiver="issey.rickowens@gmail.com"
+)
 df = pd.read_csv("high_sales.csv")
 total_sales = df["sales"].sum()
 sales_count = len(df)
 
 
-# Slack通知（A＋：カラー付きバージョン）
+# === Slack通知（A+：カラー付きバージョン） ===
 webhook_url = os.getenv("SLACK_WEBHOOK_URL")
 
 if webhook_url:
     message = {
         "attachments": [
             {
-                "color": "#36a64f",  # ← 成功メッセージ用の緑色
+                "color": "#36a64f",
                 "blocks": [
                     {
                         "type": "header",

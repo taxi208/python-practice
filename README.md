@@ -147,3 +147,95 @@ HTMLフォームから受け取った値を Python が処理し、テンプレ�
 - 編集画面の “+” アイコンなど UI の場所確認  
 - 実際に貼り付ける前の見本を提供
 
+# 自動売上レポート生成スクリプト（Python）
+
+このプロジェクトは、売上データ（CSV）を読み込み、以下を自動生成するワークフローです。
+
+- 日別・月別売上グラフ（PNG形式）
+- 売上サマリ（総売上・月次平均など）
+- 上位売上ランキング抽出（high_sales.csv）
+- 上位売上ランキング可視化（top_sales_plot.html）
+- 自動で index.html（レポートまとめページ） を更新
+- Slackに通知（成功/失敗ログ付き）
+- メール送信通知（SMTP／Googleアプリパスワード対応）
+
+---
+
+## 📌 1. sales_total.py
+- CSV読み込み
+- 日別/月別売上の集計
+- `sales_chart.png` を出力
+- `sales_monthly_chart.png` を出力
+- グラフは matplotlib 使用
+
+出力例（ログ）：
+
+売上レポート自動生成開始：2025-11-20 17:15:59
+
+=============================== 
+▶ sales_total.py 実行開始
+===============================
+
+Matplotlib版グラフ「sales_chart.png」を保存しました。
+月別グラフ「sales_monthly_chart.png」を保存しました。
+
+✔ sales_plot.html を作成しました。
+
+sales_total.py 実行成功 （2.35秒）
+
+---
+
+## 📌 2. high_sales.py
+- 上位10件を抽出して `high_sales.csv` を生成
+- グラフHTMLを `top_sales_plot.html` として保存
+
+出力例：
+
+✔ high_sales.csv を出力しました → outputs/high_sales.csv
+✔ 上位10件グラフを生成しました → outputs/top_sales_plot.html
+high_sales.py 実行成功（0.76秒）
+
+---
+
+## 📌 3. generate_index.py
+- 全ての生成物を `docs/index.html` にまとめる
+- GitHub Pages で閲覧可能
+
+✔ index.html を生成しました → docs/index.html
+generate_index.py 実行成功（0.60秒）
+
+---
+
+## 📌 4. Slack通知（python-slack-sdk）
+- Slack Webhook URL を `.env` に保存
+- 成功時 / 失敗時の通知を送信
+
+成功ログ：
+
+📣 Slackクラー通知を送信しました。
+
+---
+
+## 📌 5. メール送信機能（SMTP・Googleアプリパスワード）
+- Googleアカウントの 2段階認証を ON（必須）
+- 「アプリ パスワード」を作成して SMTPログインに使用
+
+例：生成された16桁のアプリパスワード  
+bzuq kuyq xjrv txbu
+
+※ 通常パスワードでは送れないので注意
+
+---
+
+## 📌 実行結果まとめ
+売上レポート自動生成完了：2025-11-20 17:16:02
+
+メール送信成功‼  
+Slack通知も成功しました。
+
+---
+
+## 📌 今後の拡張候補
+- ログ強化（エラー時のスタックトレース保存）
+- 自動でGitHubへpushするオプション
+- CSVの月次自動アーカイブ
