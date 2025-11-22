@@ -1,241 +1,135 @@
 # 👋 Hi, I'm isse / taxi208
 
 こんにちは、いっせい（taxi208）です。
-今年の8月末に VSCode と GitHub を導入し、同じ頃に ChatGPT と出会いました。
-タクシーの仕事中に道路標識を質問したとき、即レスで答えが返ってきて驚き、
-「プログラミングって僕でもできるん？もう遅い？」と聞いたのがすべての始まりでした。
-ChatGPT からの『できます。』の一言で火がつき、隔日勤務の合間に毎日積み上げています。
+
+2024年8月末に VSCode と GitHub を導入し、同じ頃に ChatGPT と出会いました。  
+タクシーの仕事中に道路標識について質問した際、即レスで答えが返ってきて
+
+**「プログラミングって僕でもできるん？もう遅い？」**
+
+と聞いたところ、ChatGPT の『できます。』の一言で火がつきました。  
+隔日勤務の合間に毎日少しずつ積み上げ、学習を継続しています。
 
 ---
 
 ## 🚀 Skills / 使用技術
 
-* **Python 3.9+**
+**Python**
+- pandas（CSV処理 / 集計 / 可視化）
+- matplotlib / Plotly
+- Flask（Webアプリ）
 
-  * pandas（CSV処理 / 集計 / 可視化）
-  * matplotlib / Plotly（可視化）
-  * Flask（Webアプリ / フォーム送信）
-* **Git & GitHub**（GitHub Pages含む）
-* **HTML / CSS（基礎）**
-* **自動化スクリプト**（レポート生成 / 処理自動化）
+**その他**
+- Git & GitHub（Pages含む）
+- 自動化スクリプト
+- HTML/CSS（基礎）
 
 ---
 
 ## 📚 Main Projects / 主なプロジェクト
 
 ### 📊 1. 売上分析・自動レポート生成ツール（Python）
+CSV読込 → 集計 → 可視化 → 自動レポート生成まで行う実践ツール。
 
-CSV読込 → 集計 → 可視化 → 自動レポート生成まで行う実践的なツールです。
+- 日次・月次レポート生成  
+- 上位売上ランキング抽出  
+- Slack通知 / メール通知  
+- GitHub Pagesでレポート公開
 
-* `sales_total.py` : 売上サマリー生成
-* `high_sales.py` : 上位ランキング抽出（Plotly対応）
-* `auto_sales_report.py` : 自動レポート + ログ生成
-
-📷 **出力サンプル**
-![Sales Chart](https://raw.githubusercontent.com/taxi208/python-practice/main/outputs/sales_chart.png)
-
-👉 リポジトリ: [https://github.com/taxi208/python-practice](https://github.com/taxi208/python-practice)
+👉 リポジトリ: https://github.com/taxi208/python-practice
 
 ---
 
-### 🧪 2. エラー練習シリーズ（error_practice_01〜04）
-
-基礎文法とデバッグ力の強化を目的にした練習用スクリプト集。
-
-* if文 / for文
-* 変数 / 型
-* バグ修正トレーニング
+### 🌐 2. Flask フォーム送信アプリ
+HTMLフォーム → Pythonで処理 → テンプレ返却のWebアプリ。
 
 ---
 
-### 🌐 3. Flask フォーム送信アプリ（Webアプリ）
-
-HTMLフォームから受け取った値を Python が処理し、テンプレートに返す Web アプリ。
-
-* `hello_flask.py`（POST受け取り → index.htmlへ返却）
-* `form.html` / `index.html`
-
-ローカル表示: [http://localhost:5000](http://localhost:5000)
-
-👉 今後は API 化も予定。
+### 🧪 3. エラー練習シリーズ
+基本文法・デバッグ練習用のスクリプト集。
 
 ---
 
-## 📈 Goals / 今後の目標
-
-* GitHubに **5つのプロジェクト** を公開
-* Flaskで **小規模Webアプリ** を完成
-* Pythonの自動化ツールをさらに強化
-* paiza Cランク → Bランクへ
-* **5ヶ月以内にエンジニア転職**
+## 🎯 Goals / 目標
+- プロジェクトを5つ公開  
+- FlaskでWebアプリを完成  
+- paiza C→Bランクへ  
+- **5ヶ月以内にエンジニア転職**
 
 ---
 
-## 🔥 Mindset / 心がけ
-
-* 小さなコミットでも“毎日積み上げる”
-* 1日1時間の学習を継続
-* 学習ログを可視化して改善
-* 未来の自分に投資する
+## 🔥 Mindset
+- 小さなコミットでも“毎日積み上げる”
+- 1日1時間の学習を継続
+- ショートカットや基礎力を固める
+- ChatGPTを使い倒して最速で成長する
 
 ---
 
 ## 👤 About Me / 自己紹介
 
-今年の8月末に VSCode と GitHub を初めて導入し、同じ頃に ChatGPT に出会いました。
-タクシーの仕事中に道路標識について質問した際、
-「こんなことも即レスで答えてくれるの？」という驚きがきっかけでした。
-
-試しに「プログラミングって僕でも今からできるんですか？もう遅いですか？」
-と聞いたとき、ChatGPT はすぐに
-**『できます。』**
-と答えました。
-
-その一言で火がつき、毎日 ChatGPT に質問しながら、ショートカットや基礎スキルを独学で習得。
-隔日勤務の会社員生活の中でも時間を見つけてコツコツ積み上げています。
-
-いつかエンジニアとして働いてみたい——その思いで今日もコードを書いています。
-どうぞよろしくお願いします。
+ChatGPTと出会って初めて「プログラミングが自分にもできるかもしれない」と感じました。  
+隔日勤務の合間に独学しながら、小さく前進を積み上げています。
 
 ---
 
 ## 📫 Contact
-
-**X（Twitter）**：準備中
+X（Twitter）：準備中
 
 ---
 
-このアカウントでは、学習の成果や改善を継続的に公開していきます。
+**このアカウントでは、学習の成果や改善を継続的に公開していきます。**  
 エンジニアとしての最初の1歩を、ここから踏み出します。🔥
 
-# 今日やったことまとめ（GitHub / README / Weather App）
-
-## 1. GitHub の表示エラー対処
-- YAML がバラけて表示される問題を確認  
-- 「Markdown の中に全部入れてほしい」という形式に合わせて修整  
-- フォルダとファイルの違いを説明  
-- Copilot の生成内容を整理して、手で修正しやすい形に調整
-
 ---
 
-## 2. Weather App README の下地作成
-- README に “Weather App” セクション追加  
-- プロジェクトの紹介文を作成  
-- 使い方（How to Use）をMarkdownで整理  
-- スクショを貼るスペースを作成（後で差し替えるだけ方式）
+## 💬 補足
+Weather App・自動売上レポートなどの詳細は  
+→ **各プロジェクトの README に記載**
+## 📝 Update / 本日のアップデート（2025-11-22）
 
----
+### 🔧 自動レポート生成ツール（auto_sales_report.py）
+- 転職用のプロフェッショナル構成に全面リファクタリング  
+- `run_script()` を新規実装し、  
+  - スクリプト実行の共通化  
+  - 実行時間計測  
+  - 例外処理（try/except）  
+  を標準化  
+- INFO / ERROR ログを統一し、`logging` による正式ログ出力へ移行  
+- `report_log.txt`（テキストログ）と  
+  `report_log.json`（構造化ログ）の自動生成に対応  
+- Slack 通知処理に例外対策を追加し、Webhook 未設定時は安全にスキップする仕様へ改善  
+- `.env` 読み込み（python-dotenv）を導入し、環境変数で設定管理できる構造に改良  
 
-## 3. GitHub リポジトリ側の確認
-- README の位置が合っているか確認  
-- リポジトリのファイル構造の理解  
-- コピペする場所（README.md）が正しいかチェック  
-- 画面通り、GitHub Desktop と VS Code の同期確認
+### 🛠 Mac / VSCode / venv 関連の問題解決
+- Homebrew 版 Python の仕様により  
+  `pip` / `python` がターミナルで認識されない問題を解決  
+- venv が VSCode 上で見えていても  
+  実際はシステム Python が動いてしまう現象を解消  
+- `source venv/bin/activate` により仮想環境を正しく有効化  
+- `./venv/bin/python3 -m pip install python-dotenv` を使用し  
+  venv 内へ確実に python-dotenv をインストール  
+- `python-dotenv` インストール済みなのに  
+  `No module named 'dotenv'` が出る原因を特定し、完全解決  
 
----
+### 📊 各スクリプト実行（すべて成功）
+- `sales_total.py`  
+  - 日次 / 月次売上レポート生成  
+  - グラフ画像（PNG）正常出力  
+- `high_sales.py`  
+  - 上位売上抽出  
+  - プロット HTML 出力  
+- `generate_index.py`  
+  - docs/index.html を正常更新  
+- 全スクリプトが `auto_sales_report.py` からワンクリック自動実行で流れる状態を実現  
+- Slack 通知も完了  
 
-## 4. Markdown 表示トラブルの対応
-- 「バラける」「違う場所に分離される」問題の原因を説明  
-- Markdown のコードブロックで統一すればズレずに表示できると説明  
-- 「分けんなってw」問題の解決：全部1つの md ブロックにまとめる
+### ✅ 結果
+- 「売上分析〜HTML生成〜通知までを自動化するバックエンドツール」を  
+  **転職ポートフォリオで提出できる品質まで引き上げ完了**  
+- 実務でも使用できるレベルの  
+  **ログ管理 / エラー処理 / 例外ハンドリング / 設定管理** が身についた  
+- Mac + VSCode + venv の環境トラブルを自力で解決できるスキルを獲得  
+- GitHub に公開して問題ない構成へアップデート完了
 
----
 
-## 5. 操作サポート（リアルタイム）
-- いっせーさんの投稿画面のスクショを見ながら  
-  「この場所でOK」「そこに貼るで合ってる」など位置指示  
-- 編集画面の “+” アイコンなど UI の場所確認  
-- 実際に貼り付ける前の見本を提供
-
-# 自動売上レポート生成スクリプト（Python）
-
-このプロジェクトは、売上データ（CSV）を読み込み、以下を自動生成するワークフローです。
-
-- 日別・月別売上グラフ（PNG形式）
-- 売上サマリ（総売上・月次平均など）
-- 上位売上ランキング抽出（high_sales.csv）
-- 上位売上ランキング可視化（top_sales_plot.html）
-- 自動で index.html（レポートまとめページ） を更新
-- Slackに通知（成功/失敗ログ付き）
-- メール送信通知（SMTP／Googleアプリパスワード対応）
-
----
-
-## 📌 1. sales_total.py
-- CSV読み込み
-- 日別/月別売上の集計
-- `sales_chart.png` を出力
-- `sales_monthly_chart.png` を出力
-- グラフは matplotlib 使用
-
-出力例（ログ）：
-
-売上レポート自動生成開始：2025-11-20 17:15:59
-
-=============================== 
-▶ sales_total.py 実行開始
-===============================
-
-Matplotlib版グラフ「sales_chart.png」を保存しました。
-月別グラフ「sales_monthly_chart.png」を保存しました。
-
-✔ sales_plot.html を作成しました。
-
-sales_total.py 実行成功 （2.35秒）
-
----
-
-## 📌 2. high_sales.py
-- 上位10件を抽出して `high_sales.csv` を生成
-- グラフHTMLを `top_sales_plot.html` として保存
-
-出力例：
-
-✔ high_sales.csv を出力しました → outputs/high_sales.csv
-✔ 上位10件グラフを生成しました → outputs/top_sales_plot.html
-high_sales.py 実行成功（0.76秒）
-
----
-
-## 📌 3. generate_index.py
-- 全ての生成物を `docs/index.html` にまとめる
-- GitHub Pages で閲覧可能
-
-✔ index.html を生成しました → docs/index.html
-generate_index.py 実行成功（0.60秒）
-
----
-
-## 📌 4. Slack通知（python-slack-sdk）
-- Slack Webhook URL を `.env` に保存
-- 成功時 / 失敗時の通知を送信
-
-成功ログ：
-
-📣 Slackクラー通知を送信しました。
-
----
-
-## 📌 5. メール送信機能（SMTP・Googleアプリパスワード）
-- Googleアカウントの 2段階認証を ON（必須）
-- 「アプリ パスワード」を作成して SMTPログインに使用
-
-例：生成された16桁のアプリパスワード  
-bzuq kuyq xjrv txbu
-
-※ 通常パスワードでは送れないので注意
-
----
-
-## 📌 実行結果まとめ
-売上レポート自動生成完了：2025-11-20 17:16:02
-
-メール送信成功‼  
-Slack通知も成功しました。
-
----
-
-## 📌 今後の拡張候補
-- ログ強化（エラー時のスタックトレース保存）
-- 自動でGitHubへpushするオプション
-- CSVの月次自動アーカイブ

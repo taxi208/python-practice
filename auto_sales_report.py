@@ -1,7 +1,8 @@
 # === auto_sales_report.py ===
-# 🧩 ChatGPTカリキュラム転職対応版
-# 売上レポート自動生成・ログ出力・メール通知までを全自動で実行するスクリプト
-# （開発者：issey / 2025年版ポートフォリオ対応）
+# 🔥 ChatGPT転職カリキュラム：プロ仕様バージョン
+# 売上レポート生成・上位売上抽出・HTML生成を全自動で行うスクリプト
+# すべての処理を詳細にログ記録し、エラーにも対応
+#（開発者：issey / 2025 ポートフォリオ用）
 
 import subprocess
 import datetime
@@ -16,7 +17,6 @@ from dotenv import load_dotenv
 import pandas as pd
 import requests
 
-
 # === 0. 環境変数の読み込み ===
 load_dotenv()
 
@@ -28,145 +28,91 @@ logging.basicConfig(
 )
 
 def log(msg):
-    """ログを出力し、ターミナルにも表示する"""
+    """ログを出力し、ターミナルにも表示"""
     print(msg)
     logging.info(msg)
 
+def log_error(msg):
+    """エラーをログとして記録"""
+    print(f"[ERROR] {msg}")
+    logging.error(msg)
 
-def log_success(script_name, elapsed):
-    log(f"✅ {script_name} 実行成功（{elapsed:.2f}秒）")
-
-def log_error(script_name, error):
-    log(f"❌ {script_name} 実行失敗: {error}")
-
-# === 2. スクリプト実行関数 ===
+# === 2. 汎用スクリプト実行関数 ===
 def run_script(script_name):
-    """個別スクリプトを安全に実行し、時間を計測"""
+    log(f"▶ 実行開始: {script_name}")
     start = time.time()
-    log(f"▶ {script_name} 実行開始")
+
     try:
         subprocess.run(["python", script_name], check=True)
-        elapsed = time.time() - start
-        log_success(script_name, elapsed)
-    except subprocess.CalledProcessError as e:
-        log_error(script_name, e)
-        raise SystemExit("処理を中断しました。")
-
-# === 3. 各スクリプト順次実行 ===
-now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-log(f"\n🧮 売上レポート自動生成開始：{now}\n" + "=" * 60)
-
-run_script("sales_total.py")
-run_script("high_sales.py")
-run_script("generate_index.py")
-
-end = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-log(f"\n📊 売上レポート自動生成完了：{end}\n" + "=" * 60)
-
-# === 4. メール送信関数 ===
-def send_report_via_email(attachments, sender, password, receiver):
-    """自動生成されたレポートをメール送信"""
-    try:
-        msg = MIMEMultipart()
-        msg["From"] = sender
-        msg["To"] = receiver
-        msg["Subject"] = "📈 売上レポート自動生成完了通知"
-        body = f"売上レポートが正常に生成されました。\n完了時刻：{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
-        msg.attach(MIMEText(body, "plain", "utf-8"))
-
-        # 添付ファイルを追加
-        for file_path in attachments:
-            with open(file_path, "rb") as f:
-                part = MIMEApplication(f.read(), Name=os.path.basename(file_path))
-                part["Content-Disposition"] = f'attachment; filename="{os.path.basename(file_path)}"'
-                msg.attach(part)
-
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-            server.login(sender, password)
-            server.send_message(msg)
-
-        log("📧 メール送信成功！")
-
+        elapsed = round(time.time() - start, 2)
+        log(f"✅ 成功: {script_name}（{elapsed}秒）")
     except Exception as e:
-        log(f"⚠️ メール送信失敗: {str(e)}")
+        log_error(f"❌ 失敗: {script_name} → {e}")
+        return False
 
-# === 5. メール送信を実行 ===
-send_report_via_email(
-    attachments=[
-        "outputs/sales_chart.png",
-        "outputs/top_sales_plot.html"
-    ],
-    sender="issey.rickowens@gmail.com",
-    password=os.getenv("EMAIL_PASSWORD"),
-    receiver="issey.rickowens@gmail.com"
-)
-df = pd.read_csv("high_sales.csv")
-total_sales = df["sales"].sum()
-sales_count = len(df)
+    return True
 
+# === 3. Slack通知（必要ならONにできる） ===
+def send_slack(message):
+    webhook_url = os.getenv("SLACK_WEBHOOK_URL")
+    if not webhook_url:
+        log("Slack Webhook URL が設定されていません。通知をスキップします。")
+        return
 
-# === Slack通知（A+：カラー付きバージョン） ===
-webhook_url = os.getenv("SLACK_WEBHOOK_URL")
+    try:
+        response = requests.post(webhook_url, json={"text": message})
+        if response.status_code == 200:
+            log("Slack通知: 成功")
+        else:
+            log_error(f"Slack通知エラー: {response.status_code}")
+    except Exception as e:
+        log_error(f"Slack送信に失敗: {e}")
 
-if webhook_url:
-    message = {
-        "attachments": [
-            {
-                "color": "#36a64f",
-                "blocks": [
-                    {
-                        "type": "header",
-                        "text": {"type": "plain_text", "text": "✅ 売上レポート自動生成 完了！"}
-                    },
-                    {
-                        "type": "section",
-                        "fields": [
-                            {"type": "mrkdwn", "text": f"💰 *総売上金額:* ¥{total_sales:,}"},
-                            {"type": "mrkdwn", "text": f"🧾 *売上件数:* {sales_count}件"},
-                            {"type": "mrkdwn", "text": f"*📅 実行日時:*\n{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"},
-                            {"type": "mrkdwn", "text": "*💻 実行者:*\n@issey"}
-                        ]
-                    },
-                    {
-                        "type": "section",
-                        "fields": [
-                            {"type": "mrkdwn", "text": "*📊 グラフ:*\n<https://github.com/taxi208/python-practice/blob/main/outputs/sales_chart.png|sales_chart.png>"},
-                            {"type": "mrkdwn", "text": "*🏆 ランキング:*\n<https://github.com/taxi208/python-practice/blob/main/outputs/top_sales_plot.html|top_sales_plot.html>"}
-                        ]
-                    },
-                    {
-                        "type": "context",
-                        "elements": [
-                            {"type": "plain_text", "text": "Python自動レポートシステム (by ChatGPTカリキュラム)"}
-                        ]
-                    }
-                ]
-            }
-        ]
+# === 4. メール通知（後で実装予定） ===
+def send_mail(subject, body, attachments=None):
+    pass  # 転職後の実務フェーズで拡張
+
+# === 5. メイン処理 ===
+def main():
+    log("====== 自動レポート生成開始 ======")
+
+    scripts = [
+        "sales_total.py",
+        "high_sales.py",
+        "generate_index.py",
+    ]
+
+    # 1つでも失敗したら False
+    all_success = True
+
+    for script in scripts:
+        if not run_script(script):
+            all_success = False
+
+    # 最終ログ
+    if all_success:
+        msg = "✨ 全スクリプト正常完了！"
+        log(msg)
+        send_slack(msg)
+    else:
+        msg = "⚠ 一部スクリプトに失敗が発生しました"
+        log_error(msg)
+        send_slack(msg)
+
+    log("====== 自動レポート生成終了 ======")
+
+    # 実行ログをjson形式でも保存（エビデンスとして強い）
+    log_data = {
+        "timestamp": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "status": "success" if all_success else "error",
+        "executed_scripts": scripts,
+        "attachments": ["sales_chart.png", "top_sales_plot.html"]
     }
 
-    try:
-        response = requests.post(webhook_url, json=message)
-        if response.status_code == 200:
-            print("Slackカラー通知を送信しました。")
-        else:
-            print(f"Slack通知エラー: {response.status_code}")
-    except Exception as e:
-        print(f"Slack送信中にエラー発生: {e}")
-else:
-    print("Slack Webhook URL が設定されていません。")
+    import json
+    with open("report_log.json", "a", encoding="utf-8") as f:
+        f.write(json.dumps(log_data, ensure_ascii=False) + "\n")
 
-import json
-from datetime import datetime
-
-log_data = {
-    "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-    "status": "success",
-    "executed_scripts": ["sales_total.py", "high_sales.py", "generate_index.py"],
-    "attachments": ["sales_chart.png", "top_sales_plot.html"],
-}
-
-with open("report_log.json", "a", encoding="utf-8") as f:
-    f.write(json.dumps(log_data, ensure_ascii=False) + "\n")
-
-
+# === 実行 ===
+if __name__ == "__main__":
+    main()
