@@ -114,5 +114,24 @@ def main():
         f.write(json.dumps(log_data, ensure_ascii=False) + "\n")
 
 # === 実行 ===
+# ===== メール送信（レポート完了通知） =====
+from send_mail import send_report_via_email
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+# 添付ファイル
+email_files = [
+    "outputs/sales_chart.png",
+    "outputs/top_sales_plot.html"
+]
+
+send_report_via_email(
+    attachments=email_files,
+    sender=os.getenv("EMAIL_SENDER"),
+    receiver=os.getenv("EMAIL_RECEIVER")
+)
+
 if __name__ == "__main__":
     main()
