@@ -1,46 +1,39 @@
 import logging
-from logging.handlers import RotatingFileHandler
-import time
+from logging import handlers
+import os
+from datetime import datetime
 
-def get_logger(name="sales_app_logger"):
-    """ロガー（ログ出力用）を作成する関数"""
-    logger = logging.getLogger(name)
+# ログフォルダ作成
+LOG_DIR = "logs"
+os.makedirs(LOG_DIR, exist_ok=True)
+
+# ログファイル名（日付ごとに作成）
+log_file = os.path.join(LOG_DIR, f"report_{datetime.now().strftime('%Y-%m-%d')}.log")
+
+def setup_logger():
+    logger = logging.getLogger("auto_report")
     logger.setLevel(logging.INFO)
 
-    # 1MB × 3世代ローテーション
-    handler = RotatingFileHandler(
-        "report_log.txt",
-        maxBytes=1_000_000,
-        backupCount=3,
-        encoding="utf-8"
-    )
+    # すでにハンドラが付いている場合は重複防止
+    if logger.handlers:
+        return logger
 
+    # ① フォーマット（プロ仕様）
     formatter = logging.Formatter(
-        "%(asctime)s [%(levelname)s] %(message)s"
+        "%(asctime)s | %(levelname)s | %(name)s | %(message)s",
+        "%Y-%m-%d %H:%M:%S"
     )
-    handler.setFormatter(formatter)
 
-    if not logger.handlers:
-        logger.addHandler(handler)
+    # ② コンソール出力（標準出力）
+    console = logging.StreamHandler()
+    console.setFormatter(formatter)
+    logger.addHandler(console)
+
+    # ③ ファイル出力（毎日1ファイル）
+    file_handler = handlers.TimedRotatingFileHandler(
+        log_file, when="midnight", backupCount=7, encoding="utf-8"
+    )
+    file_handler.setFormatter(formatter)
+    logger.addHandler(file_handler)
 
     return logger
-
-
-def measure_time(func):
-    """処理時間を測定するデコレータ"""
-    def wrapper(*args, **kwargs):
-        logger = get_logger()
-        start = time.time()
-        logger.info(f"▶ {func.__name__} 開始")
-
-        try:
-            result = func(*args, **kwargs)
-            return result
-        except Exception as e:
-            logger.error(f"❌ {func.__name__} でエラー: {e}")
-            raise
-        finally:
-            duration = time.time() - start
-            logger.info(f"⏱ {func.__name__} 完了（{duration:.2f}秒）")
-
-    return wrapper
