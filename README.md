@@ -114,3 +114,6 @@ X（Twitter）：準備中
 - 上位10件の売上ランキングを Plotly でインタラクティブに表示
 - HTML 自動生成（top_sales_plot.html）
 - 色分布・ホバー表示・ラベル表示対応
+
+### 📊 デモ（GitHub Pages）
+https://taxi208.github.io/python-practice/top_sales_plot.html
