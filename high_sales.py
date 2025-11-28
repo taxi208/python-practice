@@ -48,6 +48,19 @@ def generate_high_sales_report():
 
     return output_html
 
-
 if __name__ == "__main__":
-    generate_high_sales_report()
+    # TODO: 本番のレポート作成（今はコメントアウト）
+      generate_high_sales_report()
+
+    # === Plotlyテスト ===
+# import plotly.express as px
+# import pandas as pd
+
+    # df = pd.DataFrame({
+    #     "商品名": ["A", "B", "C"],
+    #     "売上": [100, 200, 150]
+    # })
+
+    # fig = px.bar(df, x="商品名", y="売上", title="Plotlyテスト")
+    # fig.show()
+
