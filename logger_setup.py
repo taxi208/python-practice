@@ -1,14 +1,14 @@
 import logging
 from logging import handlers
-import os
 from datetime import datetime
+import os
 
 # ログフォルダ作成
 LOG_DIR = "logs"
 os.makedirs(LOG_DIR, exist_ok=True)
 
-# ログファイル名（日付ごとに作成）
-log_file = os.path.join(LOG_DIR, f"report_{datetime.now().strftime('%Y-%m-%d')}.log")
+# ログファイル名（固定ファイル名 → ローテーション対応）
+log_file = os.path.join(LOG_DIR, "auto_report.log")
 
 def setup_logger():
     logger = logging.getLogger("auto_report")
@@ -18,18 +18,18 @@ def setup_logger():
     if logger.handlers:
         return logger
 
-    # ① フォーマット（プロ仕様）
+    # ---- フォーマット ----
     formatter = logging.Formatter(
-        "%(asctime)s | %(levelname)s | %(name)s | %(message)s",
+        "%(asctime)s | %(levelname)s | %(name)s | %(funcName)s | %(message)s",
         "%Y-%m-%d %H:%M:%S"
     )
 
-    # ② コンソール出力（標準出力）
+    # ---- コンソール出力 ----
     console = logging.StreamHandler()
     console.setFormatter(formatter)
     logger.addHandler(console)
 
-    # ③ ファイル出力（毎日1ファイル）
+    # ---- ファイル出力（毎日ローテーション）----
     file_handler = handlers.TimedRotatingFileHandler(
         log_file, when="midnight", backupCount=7, encoding="utf-8"
     )
@@ -37,3 +37,4 @@ def setup_logger():
     logger.addHandler(file_handler)
 
     return logger
+
