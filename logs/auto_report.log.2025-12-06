@@ -1,0 +1,19 @@
+2025-12-06 09:00:01,247 [INFO] ====== 自動レポート生成開始 ======
+2025-12-06 09:00:01,250 [INFO] ▶️ 実行開始：sales_total.py
+2025-12-06 09:00:04,797 [ERROR] ❌ 失敗：sales_total.py → Command '['python', 'sales_total.py']' died with <Signals.SIGILL: 4>.
+Traceback (most recent call last):
+  File "/Users/issei/Python/python-practice/auto_sales_report.py", line 27, in run_script
+    subprocess.run(["python", script_name], check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['python', 'sales_total.py']' died with <Signals.SIGILL: 4>.
+2025-12-06 09:00:04,805 [INFO] ▶️ 実行開始：high_sales.py
+2025-12-06 09:00:07,191 [INFO] ✅ 成功：high_sales.py（2.38秒）
+2025-12-06 09:00:07,192 [INFO] ▶️ 実行開始：generate_index.py
+2025-12-06 09:00:07,354 [INFO] ✅ 成功：generate_index.py（0.16秒）
+2025-12-06 09:00:07,354 [ERROR] ⚠️ 一部スクリプトに失敗が発生しました
+2025-12-06 09:00:09,842 [INFO] Slack通知送信成功
+2025-12-06 09:00:09,846 [INFO] ====== 自動レポート生成終了（処理時間：8.6秒）======
+2025-12-06 09:00:37,398 [INFO] 📧 メール送信完了

@@ -1,0 +1,11 @@
+2025-12-03 09:02:39,693 [INFO] ====== 自動レポート生成開始 ======
+2025-12-03 09:02:39,696 [INFO] ▶️ 実行開始：sales_total.py
+2025-12-03 09:02:46,042 [INFO] ✅ 成功：sales_total.py（6.35秒）
+2025-12-03 09:02:46,044 [INFO] ▶️ 実行開始：high_sales.py
+2025-12-03 09:19:57,716 [INFO] ✅ 成功：high_sales.py（1031.67秒）
+2025-12-03 09:19:57,716 [INFO] ▶️ 実行開始：generate_index.py
+2025-12-03 09:19:57,877 [INFO] ✅ 成功：generate_index.py（0.16秒）
+2025-12-03 09:19:57,878 [INFO] 全スクリプト正常完了！
+2025-12-03 09:19:57,960 [ERROR] Slack送信で例外発生：HTTPSConnectionPool(host='hooks.slack.com', port=443): Max retries exceeded with url: /services/T09QZ5A73V1/B09R9ANLF1A/cPc2IBMtktInVf08NpNrBqfo (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x10d346270>: Failed to resolve 'hooks.slack.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2025-12-03 09:19:57,960 [INFO] ====== 自動レポート生成終了（処理時間：1038.26秒）======
+2025-12-03 09:19:58,071 [INFO] 📧 メール送信完了
