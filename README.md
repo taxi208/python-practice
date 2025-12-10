@@ -1,3 +1,7 @@
+![project_thumbnail](https://raw.githubusercontent.com/taxi208/python-practice/main/スクリーンショット%202025-12-10%2017.11.58.png)
+
+
+
 # Python Sales Automation System  
 日次売上データの読込 → 集計 → グラフ生成 → HTMLレポート → Slack通知 → ログ管理  
 までを **完全自動化** したポートフォリオプロジェクトです。
