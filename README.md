@@ -1,14 +1,23 @@
-![project_thumbnail](https://raw.githubusercontent.com/taxi208/python-practice/main/スクリーンショット%202025-12-10%2017.11.58.png)
+# Python Sales Automation System
 
+📊 **売上CSVを起点に、集計・可視化・HTMLレポート・Slack通知までを自動化したPythonポートフォリオ**
 
+## 🔹 What I built
+- pandasでCSV売上データを集計・分析
+- matplotlib / Plotly によるグラフ自動生成
+- HTMLレポートの自動生成
+- Slack（Block Kit）で結果通知
+- Logging + ローテーションによる実行ログ管理
+- GitHub Actions による定期自動実行
 
-# Python Sales Automation System  
-日次売上データの読込 → 集計 → グラフ生成 → HTMLレポート → Slack通知 → ログ管理  
-までを **完全自動化** したポートフォリオプロジェクトです。
+👉 **日次業務の自動化を想定した実装**
 
----
+## 📸 Output Samples
+![Sales Line Chart](outputs/sales_line_chart.png)
+![Monthly Sales Chart](outputs/sales_monthly_chart.png)
 
 ## 📌 Overview（できること一覧）
+
 
 
 このシステムは、売上CSVを読み取り、以下の処理を自動で行います。
