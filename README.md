@@ -1,6 +1,12 @@
 # Python Sales Automation System
 
-📊 **売上CSVを起点に、集計・可視化・HTMLレポート・Slack通知までを自動化したPythonポートフォリオ**
+Pythonを使って  
+**売上データ集計 → グラフ生成 → HTMLレポート化 → Slack通知 → ログ管理 → 定期実行**  
+までを自動化した、実務想定の業務改善ツールです。
+
+Excelでの手作業集計や属人化を想定し、  
+「失敗しても追える」「毎日自動で回せる」設計を重視しています。
+
 
 ## 🔹 What I built
 - pandasでCSV売上データを集計・分析
