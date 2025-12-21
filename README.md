@@ -1,11 +1,26 @@
 # Python Sales Automation System
 
-Pythonを使って  
-**売上データ集計 → グラフ生成 → HTMLレポート化 → Slack通知 → ログ管理 → 定期実行**  
-までを自動化した、実務想定の業務改善ツールです。
+売上CSVを入力するだけで、  
+**集計 → グラフ生成 → HTMLレポート → Slack通知 → ログ管理 → 定期実行**  
+までを自動で行う、業務自動化ツールです。
 
-Excelでの手作業集計や属人化を想定し、  
-「失敗しても追える」「毎日自動で回せる」設計を重視しています。
+📌 想定利用シーン  
+- 日次・月次の売上レポート作成  
+- Excel手作業の自動化  
+- 「毎日回せる」分析・報告フローの構築  
+
+🔧 使用技術  
+Python / pandas / matplotlib / Plotly / Slack API / GitHub Actions / logging
+
+## 📸 Output Samples
+![Sales Line Chart](outputs/sales_line_chart.png)
+![Monthly Sales Chart](outputs/sales_monthly_chart.png)
+
+## ▶️ How to Run
+```bash
+pip install -r requirements.txt
+python auto_sales_report.py
+
 
 
 ## 🔹 What I built
@@ -18,9 +33,6 @@ Excelでの手作業集計や属人化を想定し、
 
 👉 **日次業務の自動化を想定した実装**
 
-## 📸 Output Samples
-![Sales Line Chart](outputs/sales_line_chart.png)
-![Monthly Sales Chart](outputs/sales_monthly_chart.png)
 
 ## 📌 Overview（できること一覧）
 
